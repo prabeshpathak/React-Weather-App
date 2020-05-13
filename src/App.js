@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const api = "429736441cf3572838aa10530929f7cd";
+// (`https://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=${api}`);
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+  componentDidUpdate = async () => {
+    const api_call = fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=${api}`
+    );
+    const response = (await api_call).json()
+  };
+  render() {
+    return <div>a</div>;
+  }
 }
 
 export default App;
