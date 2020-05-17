@@ -4,12 +4,10 @@ const Weather = (props) => {
   return (
     <div>
       <div className="name-container">
-        <h1>
-          {props.city}, {props.country}
-        </h1>
+        <h1>{props.city}</h1>
       </div>
       <div className="avg-temp">
-        <h2>{props.avgTemp}&deg;c</h2>
+        {props.avgTemp ? <h2>{props.avgTemp}&deg;c</h2> : null}
       </div>
       <div className="description">
         <span></span>
@@ -18,8 +16,8 @@ const Weather = (props) => {
         </h2>
       </div>
       <div className="min-max">
-        <h2 className="max">{props.temp_max}&deg;c</h2>
-        <h2 className="min">{props.temp_min}&deg;c</h2>
+        {props.temp_max ? (<h2 className="max">{props.temp_max}&deg;c</h2>): null}
+        {props.temp_min ? (<h2 className="min">{props.temp_min}&deg;c</h2>): null}
       </div>
     </div>
   );

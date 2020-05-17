@@ -12,43 +12,41 @@ class App extends Component {
 
     this.state = {
       idForIcon: "",
-      city: "Kathmandu",
-      country: "",
+      city: "",
       temperature: "",
       description: "",
       temperature_max: "",
       temperature_min: "",
       icons: "",
+      error: false,
     };
   }
-  handleInput = (e) => {
-    let searchVal = e.target.value;
 
-    this.setState({
-      city: searchVal,
-    });
+  getWeather = async (e) => {
+    e.preventDefault();
 
-    console.log(searchVal);
-  };
-
-  componentDidMount = async () => {
-    const api_call = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${this.state.city}&appid=${api}`
-    );
-    const response = await api_call.json();
-    console.log(response);
-
-    this.setState({
-      idForIcon: response.weather[0].id,
-      city: response.name,
-      country: response.sys.country,
-      temperature: this.toCelsius(response.main.temp),
-      description: response.weather[0].description,
-      temperature_max: this.toCelsius(response.main.temp_max),
-      temperature_min: this.toCelsius(response.main.temp_min),
-    });
-
-    this.fontIcon(response.weather[0].id);
+    const city = e.target.elements.city.value;
+    const country = e.target.elements.country.value;
+    if (city && country){
+      const api_call = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${api}`
+      );
+      const response = await api_call.json();
+      console.log(response);
+  
+      this.setState({
+        idForIcon: response.weather[0].id,
+        city: `${response.name},${response.sys.country}`,
+        temperature: this.toCelsius(response.main.temp),
+        description: response.weather[0].description,
+        temperature_max: this.toCelsius(response.main.temp_max),
+        temperature_min: this.toCelsius(response.main.temp_min),
+      });
+  
+      this.fontIcon(response.weather[0].id);
+    }else{
+      this.setState({error: true})
+    }
   };
 
   toCelsius = (temperature) => {
@@ -93,7 +91,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Search handleInput={this.handleInput} />
+        <Search loadWeather={this.getWeather} error = {this.state.error} />
         <Weather
           idForIcon={this.state.idForIcon}
           city={this.state.city}
