@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 40px;
+}
+.name-container {
+  margin-bottom: 10px;
+}
+.min-max {
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+  width: 25%;
+  margin: auto;
+}
+.avg-temp {
+  margin: 10px 0;
+}
+.description {
+  margin: 10px 0;
+}

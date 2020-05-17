@@ -36,7 +36,7 @@ class App extends Component {
   
       this.setState({
         idForIcon: response.weather[0].id,
-        city: `${response.name},${response.sys.country}`,
+        city: `${response.name}, ${response.sys.country}`,
         temperature: this.toCelsius(response.main.temp),
         description: response.weather[0].description,
         temperature_max: this.toCelsius(response.main.temp_max),

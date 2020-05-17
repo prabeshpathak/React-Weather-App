@@ -1,8 +1,9 @@
 import React from "react";
+import './search.styles.css'
 
 const Search = (props) => {
   return (
-    <div>
+    <div className="containerer">
       <div>{props.error ? error() : null}</div>
       <form onSubmit={props.loadWeather}>
       <input
@@ -10,6 +11,7 @@ const Search = (props) => {
         className="searchbox"
         name="city"
         autoComplete="off"
+        placeholder="City"
       />
 
       <input
@@ -17,6 +19,7 @@ const Search = (props) => {
         className="searchbox"
         name="country"
         autoComplete="off"
+        placeholder="Country"
       />
       <button>Get weather</button>
       </form>
