@@ -4,10 +4,16 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-size: 40px;
+  color: white;
 }
 body {
   font-family: "Roboto", sans-serif;
-  background-image: url("1.jpg");
+  background: url("https://source.unsplash.com/random") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
 }
 
@@ -43,4 +49,5 @@ button {
   background-color: #32ead1;
   cursor: pointer;
   outline: none;
+
 }

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Weather from "./component/weather.component";
 import Search from "./component/search.component";
-import "../node_modules/weather-icons-master/css/weather-icons.css";
+import "./component/weather-icons.css";
 
 const api = "429736441cf3572838aa10530929f7cd";
 // (`https://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=${api}`);
