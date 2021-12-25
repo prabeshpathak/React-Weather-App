@@ -1,5 +1,6 @@
 {
   "name": "new-weather-react",
+  "homepage":"https://prabeshpathak.github.io/React-weather-app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
